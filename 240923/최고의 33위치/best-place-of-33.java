@@ -15,8 +15,8 @@ public class Main {
                 map[i][j] = Integer.parseInt(st.nextToken());
                 if(i >= 2 && j >= 2){
                     int sum = 0;
-                    for(int k = i-2; k < 3; ++k){
-                        for(int l = j-2; l < 3; ++l){
+                    for(int k = i-2; k <= i; ++k){
+                        for(int l = j-2; l <= j; ++l){
                             if(map[k][l] == 1) ++sum;
                         }
                     }
