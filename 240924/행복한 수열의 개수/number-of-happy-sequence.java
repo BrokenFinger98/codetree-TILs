@@ -1,8 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.StringTokenizer;
 
 
@@ -32,36 +30,38 @@ public class Main {
                     ++count;
                 } else {
                     if (count >= m) {
-                        ++sum;
+                        sum = Math.max(count, sum);
                     }
                     count = 1;
                 }
             }
             if(count >= m) {
-                ++sum;
+                sum = Math.max(count, sum);
             }
-            answer += sum;
+            if(sum >= m)
+                answer++;
         }
 
-        for (int i = 0; i < n-1; i++) {
+        for (int i = 0; i < n; i++) {
             int num = 0;
             int count = 1;
             int sum = 0;
-            for (int j = 0; j < n; j++) {
-                if(map[j][i] == map[j][i+1]){
+            for (int j = 0; j < n-1; j++) {
+                if(map[j][i] == map[j+1][i]){
                     num = map[j][i];
                     ++count;
                 }else{
                     if(count >= m) {
-                        ++sum;
+                        sum = Math.max(count, sum);
                     }
                     count = 1;
                 }
             }
             if(count >= m) {
-                ++sum;
+                sum = Math.max(count, sum);
             }
-            answer += sum;
+            if(sum >= m)
+                answer++;
         }
         System.out.println(answer);
         br.close();
