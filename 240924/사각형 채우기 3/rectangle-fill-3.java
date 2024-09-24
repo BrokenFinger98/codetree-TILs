@@ -4,17 +4,17 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 
 public class Main {
-    static int[] dp;
+    static long[] dp;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
-        dp = new int[N + 1];
+        dp = new long[N + 1];
         System.out.println(go(N));
         br.close();
     }
 
-    static int go(int n) {
+    static long go(int n) {
         if (n == 0) return dp[n] = 1;
         if (n == 1) return dp[n] = 2;
         if (n == 2) return dp[n] = 7;
