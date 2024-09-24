@@ -14,6 +14,7 @@ public class Main {
     }
     static int up(int n){
         if(n == 2 || n == 3) return dp[n] = 1;
+        if(n <= 1) return dp[n];
         if(dp[n] == 0) dp[n] = up(n-2) + up(n-3);
         return dp[n];
     }
