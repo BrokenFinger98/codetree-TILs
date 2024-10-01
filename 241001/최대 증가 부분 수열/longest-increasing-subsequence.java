@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Main {
-    static int N;
+    static int N, answer = 1;
     static int[] dp;
     static int[] num;
     public static void main(String[] args) throws IOException {
@@ -22,9 +22,10 @@ public class Main {
         for (int i = 1; i < N; i++) {
             for (int j = 0; j < i; j++) {
                 if(num[j] < num[i])
-                    dp[i] = Math.max(dp[i], dp[j]+1);
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
             }
+            answer = Math.max(answer, dp[i]);
         }
-        System.out.println(dp[N-1]);
+        System.out.println(answer);
     }
 }
