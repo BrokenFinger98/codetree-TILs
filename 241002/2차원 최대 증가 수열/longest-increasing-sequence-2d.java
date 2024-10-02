@@ -24,25 +24,12 @@ public class Main {
         }
 
         dp[0][0] = 1;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                for (int y = 0; y < i; y++) {
-                    for (int x = 0; x < j; x++) {
-                        if(num[i][j] > num[y][x]){
-                            dp[i][j] = Math.max(dp[i][j], dp[y][x] + 1);
-                        }
-                    }
-                }
-                answer = Math.max(answer, dp[i][j]);
-            }
-        }
-
         go(n-1, m-1);
         System.out.println(answer);
         br.close();
     }
     static int go(int y, int x){
-        if(y == 0 && x == 0) return 1;
+        if(y == 0 && x == 0) return dp[0][0];
         if(dp[y][x] != 0) return dp[y][x];
         for (int i = 0; i < y; i++) {
             for (int j = 0; j < x; j++) {
