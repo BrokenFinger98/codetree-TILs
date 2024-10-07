@@ -14,8 +14,8 @@ public class Main {
 
         @Override
         public int compareTo(Line o) {
-            if(this.x1 == o.x1) return this.x2 - o.x2;
-            return this.x2 - o.x1;
+            if(this.x1 == o.x1) return Integer.compare(this.x2, o.x2);
+            return Integer.compare(this.x1, o.x1);
         }
     }
     static int n, end, answer;
