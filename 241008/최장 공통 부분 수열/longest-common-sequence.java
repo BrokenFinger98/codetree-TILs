@@ -19,7 +19,7 @@ public class Main {
                 dp[i][0] = dp[i-1][0];
             }
         }
-        for (int i = 1; i < s1.length(); i++) {
+        for (int i = 1; i < s2.length(); i++) {
             if(s2.charAt(i) == s1.charAt(0)){
                 dp[0][i] = 1;
             }else{
