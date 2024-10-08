@@ -31,7 +31,7 @@ public class Main {
                 if(s1.charAt(i) == s2.charAt(j)){
                     dp[i][j] = Math.max(dp[i-1][j], dp[i-1][j-1] + 1);
                 }else{
-                    dp[i][j] = dp[i-1][j];
+                    dp[i][j] = dp[i][j-1];
                 }
             }
         }
