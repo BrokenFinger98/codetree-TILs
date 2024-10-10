@@ -2,11 +2,24 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
+    static class Pair{
+        int y, x;
+        char c;
+        public Pair(int y, int x, char c) {
+            this.y = y;
+            this.x = x;
+            this.c = c;
+        }
+    }
     static String s1, s2;
     static int[][] dp;
-    static int last, answer;
+    static int answer;
+    static Pair last;
+    static List<Pair> path = new ArrayList<>();
     static ArrayDeque<Character> stack = new ArrayDeque<>();
 
     public static void main(String[] args) throws IOException {
@@ -37,19 +50,18 @@ public class Main {
                 }else{
                     dp[i][j] = Math.max(dp[i][j-1], dp[i-1][j]);
                 }
-                if(answer < dp[i][j]){
-                    last = i;
-                    answer++;
-                }
             }
         }
-        while (answer > 0){
-            stack.push(s1.charAt(last--));
-            answer--;
+        answer = dp[s1.length()-1][s2.length()-1];
+        for (int i = s2.length() - 2; i >= 0; i--) {
+            if(dp[s1.length()-1][i] < dp[s1.length()-1][i+1]){
+                stack.push(s2.charAt(i));
+            }
         }
         while (!stack.isEmpty()){
             sb.append(stack.pop());
         }
+        sb.append(s2.charAt(s2.length()-1));
         System.out.println(sb);
         br.close();
     }
