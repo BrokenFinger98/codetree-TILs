@@ -6,7 +6,6 @@ import java.util.ArrayDeque;
 public class Main {
     static String s1, s2;
     static int[][] dp;
-    static int answer;
     static ArrayDeque<Character> stack = new ArrayDeque<>();
 
     public static void main(String[] args) throws IOException {
@@ -27,7 +26,11 @@ public class Main {
         int y = s1.length();
         for (int j = s2.length(); j > 0; j--) {
             if(dp[y][j] > dp[y][j-1] && dp[y][j] == dp[y-1][j-1] + 1){
-                stack.push(s2.charAt(j-1));
+                if(s1.charAt(y-1) == s2.charAt(j-1)) {
+                    stack.push(s2.charAt(j - 1));
+                }else{
+                    ++j;
+                }
                 y--;
             }
         }
