@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
-    
+
     static class Node{
         Node[] children = new Node[10];
         boolean isEnd;
@@ -47,7 +47,7 @@ public class Main {
         for(i = 0; i < text.length(); ++i){
             if(node.children[text.charAt(i) - '0'] != null){
                 node = node.children[text.charAt(i) - '0'];
-            }
+            }else break;
         }
         return i == text.length() ? 0 : 1;
     }
