@@ -21,7 +21,7 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         a = Integer.parseInt(st.nextToken());
         b = Integer.parseInt(st.nextToken());
-        visited = new int[b * 2 + 1];
+        visited = new int[100001];
         Arrays.fill(visited, Integer.MAX_VALUE);
         visited[a] = 0;
         queue.offer(new Node(a, 0));
