@@ -38,7 +38,7 @@ public class Main {
                 visited[now + 1] = depth + 1;
                 queue.offer(new Node(now + 1, depth + 1));
             }
-            if (now < b && now * 2 - b < b - now && visited[now * 2] > depth) {
+            if (now * 2 < b * 2 + 1&& now * 2 - b <= b - now && visited[now * 2] > depth) {
                 visited[now * 2] = depth;
                 queue.offer(new Node(now * 2, depth));
             }
